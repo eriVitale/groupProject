@@ -1,0 +1,58 @@
+*PROJECT LEAD* - 1 time
+// Make base project, including .gitignore using https://www.toptal.com/developers/gitignore (Python, Java, or React)
+git init
+git add . 
+git commit -m "first commit"
+git remote add origin <GITHUB LINK>
+git branch -M main
+git push -u origin main
+// Add contributors
+
+*ALL EXCEPT PROJECT LEAD* - 1 time
+// Accept contributor invite
+git clone <GITHUB LINK>
+// Reconfirm .gitignore's location and contents
+cd <folder_name>
+
+*ALL* - 1 time
+git checkout -b NAME_HERE (Change local branch to new one)
+
+
+// ALWAYS be mindful of who is working on what at any time, and what branch you are working on. 
+// Never make changes to your local main branch!
+*ALL* - start of repeating process  <- - - - - - - -
+                                                    |
+*SKIP THIS BLOCK IF JUST CLONED/CREATED REPO*
+*DO THIS BLOCK BEFORE PUSHING*                      |
+*DO THIS BLOCK AFTER EXTENDED BREAK FROM CODING*
+git checkout main                                   |
+git pull origin main 
+git checkout NAME_HERE                              |
+git merge main 
+                                                    |
+// Make changes to project
+git branch (Am I in my personal branch?)            |
+git add . 
+git commit -m "title/desc of change" -m "message"   |
+git push -u origin NAME_HERE
+// Compare and pull request on GitHub               |
+
+*PROJECT LEAD*                                      |
+// Merge branches, resolve possible conflicts 
+                                                    |
+*GO BACK TO HERE* - - - - - - - - - - - - - - - - - -
+
+
+
+----------------------------------------------------------------------------------------------------
+Did you accidentally write code in the wrong branch? (Start in branch you accidentally wrote in)
+
+git stash
+git checkout NAME_HERE
+git stash apply
+----------------------------------------------------------------------------------------------------
+Using PAT? (Example)
+git remote add origin https://{{your_personal_access_token}}@github.com/{{user_name}}/{{repo_name}}.git
+
+Using 2FA? (Example)
+git remote add origin https://github.com/{{user_name}}/{{repo_name}}.git
