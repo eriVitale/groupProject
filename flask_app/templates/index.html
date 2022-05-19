@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" class="css">
+    <title>Homepage</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="hero">
+        <!-------Nav start------->
+        <div class="nav">
+            <div class="nav left">
+                <form class="searchbar" action="/search" method="POST">
+                    <input class="navsearch" type="text" name="search" value="search products"><img src="static/SearchOutline.png" alt="search">
+                </form>
+            </div>
+            <div class="nav right">
+                <a class="navlink" href="/login">Login</a>
+                <a class="navlink" href="/register">Register</a>
+                <a class="navlink cart" href="/cart" img="static/shoppingcart.png" alt="cart"></a>
+            </div>
+        </div>
+        <!-------Navend------->
+        <div class="head">
+            <h1 class="title">Shop for Products</h1>
+        </div>
+        <!-----Categories------->
+        <div class="categories">
+            <ul class="categorieslist">
+                <li><a href="/filter">Menswear</a></li>
+                <li><a href="/filter">Womenswear</a></li>
+                <li><a href="/jewelry">Jewelry</a></li>
+                <li><a href="/electronics">Electronics</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    
+</body>
+</html>
