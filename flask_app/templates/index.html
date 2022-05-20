@@ -21,8 +21,11 @@
                 </form>
             </div>
             <div class="nav right">
-                <a class="navlink" href="/login">Login</a>
-                <a class="navlink" href="/register">Register</a>
+                {% if user not in session %}
+                <a class="navlink" href="/loginreg">Login/Register</a>
+                {% else %}
+                <a class="navlink" href="/logout">Logout</a>
+                {% endif %}
                 <a class="navlink cart" href="/cart" img="static/shoppingcart.png" alt="cart"></a>
             </div>
         </div>

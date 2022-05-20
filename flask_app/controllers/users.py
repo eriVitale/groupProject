@@ -9,3 +9,4 @@ bcrypt=Bcrypt(app)
 @app.route('/')
 def route():
     return render_template('index.html')
+
