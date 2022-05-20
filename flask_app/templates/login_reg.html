@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" class="css">
     <title>Login/Registration</title>
 </head>
 <body>
-    
+    <div class="bodybg">
+        <div class="nav">
+            <h2 class="logo">HUGO</h2>
+        </div>
+        <div class="loginreg">
+            <div class="loginreg left">
+                <h2 class="loginreg title">Create an Account</h2>
+                <div class="regform">
+                    <form action="/register" method="post">
+                        {% with messages=get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" name="first_name">
+
+                        <label for="last_name" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" name="last_name">
+
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="text" class="form-control" name="email">
+
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="text" class="form-control" name="password">
+
+                        <label for="confirm_password" class="form-label">Confirm Password:</label> 
+                        <input type="password" class="form-control" name="confirm_password">
+
+                        <input type="submit" class="button">
+                    </form>
+                </div>
+            </div>
+            <div class="loginreg right">
+                <h2 class="loginreg title">Login</h2>
+                <div class="regform">
+                    <form action="/login" method="post">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" name="email">
+                        
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" name="password">
+        
+                        <input type="submit" class="button">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
