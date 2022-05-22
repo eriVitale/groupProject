@@ -1,8 +1,7 @@
-from flask_app.config.mysqlconnection import connectToMySQL
+# No SQL connection because this is showing what we expect from the API
 import requests
 
 class Product:
-    db='estore'
     def __init__(self,data):
         self.id = data['id']
         self.title = data['title']
@@ -15,6 +14,10 @@ class Product:
 
 <<<<<<< HEAD
 =======
+
+    @staticmethod
+    def get_all_products():
+        return requests.get('https://fakestoreapi.com/products').json()
 
     @staticmethod
     def get_product_by_category(category):
