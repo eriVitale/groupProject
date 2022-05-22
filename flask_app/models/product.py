@@ -11,3 +11,10 @@ class Product:
         self.image = data['image']
         self.rating = data['rating']
         self.user_id = data['user_id']
+
+
+    @staticmethod
+    def api_call(request):
+        url = 
+
+         
