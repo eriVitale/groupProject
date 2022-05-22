@@ -13,3 +13,10 @@ class Product:
         self.rating = data['rating']
         self.user_id = data['user_id']
 
+<<<<<<< HEAD
+=======
+
+    @staticmethod
+    def get_product_by_category(category):
+        return requests.get('https://fakestoreapi.com/products/category/' + category).json()
+>>>>>>> main
