@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+import requests
 
 class Product:
     db='estore'
@@ -14,7 +15,5 @@ class Product:
 
 
     @staticmethod
-    def api_call(request):
-        url = 
-
-         
+    def get_product_by_category(category):
+        return requests.get('https://fakestoreapi.com/products/category/' + category).json()
