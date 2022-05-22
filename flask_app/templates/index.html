@@ -18,8 +18,9 @@
         <div class="nav">
             <div class="nav left">
                 <h2 CLASS="logo">HUGO</h2>
-                <form class="searchbar" action="/search" method="POST">
-                    <input class="navsearch" type="text" name="search" value="search products"><img src="static/SearchOutline.png" alt="search">
+                <!-------Make Drop Down Option------->
+                <form class="searchbar" action="/search" method="post">
+                    <input class="navsearch" type="text" name="search" value="search products"><button type="submit"><img src="static/SearchOutline.png" alt="search"></button>
                 </form>
             </div>
             <div class="nav right">
@@ -34,10 +35,10 @@
         <!-----Categories------->
         <div class="categories">
             <ul class="categorieslist">
-                <li><a href="/filter">Menswear</a></li>
-                <li><a href="/filter">Womenswear</a></li>
-                <li><a href="/jewelry">Jewelry</a></li>
-                <li><a href="/electronics">Electronics</a></li>
+                <li><a href="/products/menswear">Menswear</a></li>
+                <li><a href="/products/womenswear">Womenswear</a></li>
+                <li><a href="/products/jewelery">Jewelery</a></li>
+                <li><a href="/products/electronics">Electronics</a></li>
             </ul>
         </div>
     </div>
