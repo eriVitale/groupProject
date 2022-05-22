@@ -8,7 +8,15 @@
 </head>
 <body>
     {% for product in products %}
+    <div>
+        <h5>{{product.title}}</h5>
         <img src="{{product.image}}" alt="">
+        <p>{{product.price}}</p>
+        <div>
+            <a href="/add/{{product.id}}"><button>Add to Cart!</button></a>
+            <a href="/view/{{product.id}}"><button>Product Info</button></a>
+        </div>
+    </div>
     {% endfor %}
 </body>
 </html>
