@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+import requests
 
 class Product:
     db='estore'
@@ -12,9 +13,3 @@ class Product:
         self.rating = data['rating']
         self.user_id = data['user_id']
 
-
-    @staticmethod
-    def api_call(request):
-        url = 
-
-         
