@@ -1,5 +1,5 @@
 from flask_app import app
-from flask_app.controllers import users, products
+from flask_app.controllers import users, products, carts
 
 
 if __name__=='__main__':
