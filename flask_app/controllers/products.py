@@ -2,8 +2,6 @@ from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.product import Product
 
-<<<<<<< HEAD
-=======
 
 @app.route('/search', methods=['POST'])
 def get_product_by_category():
@@ -35,4 +33,3 @@ def category_products(category):
 
 
     return render_template('products.html', title = title, products = products)
->>>>>>> main
