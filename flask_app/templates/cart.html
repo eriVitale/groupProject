@@ -13,5 +13,10 @@
         <img src="{{item.product_info.image}}" alt="">
     </div>
     {% endfor %}
+    <div>
+        <form action="/cart/delete/{{item.id}}">
+            <button type="submit">Delete Product</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -28,3 +28,11 @@ class Cart:
                 if product['id'] == item['product_id']:
                     item['product_info'] = product
         return cart_items
+
+    @classmethod
+    def delete(cls,data):
+        query = 'DELETE * FROM cart WHERE id =%(id)s;'
+        return connectToMySQL(cls.db).query_db(query,data)
+
+
+    
