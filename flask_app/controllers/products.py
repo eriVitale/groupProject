@@ -1,3 +1,5 @@
+from itertools import product
+from math import prod
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.product import Product
@@ -33,3 +35,11 @@ def category_products(category):
 
 
     return render_template('products.html', title = title, products = products)
+
+@app.route('/view/<int:num>')
+def details(num):
+    all = Product.get_all_products()
+    for i in all:
+      if num == i['id']:
+        product = i
+    return render_template('details.html', product = product )
