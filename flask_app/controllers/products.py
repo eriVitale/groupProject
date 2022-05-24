@@ -42,4 +42,7 @@ def details(num):
     for i in all:
       if num == i['id']:
         product = i
+        print(i)
     return render_template('details.html', product = product )
+
+

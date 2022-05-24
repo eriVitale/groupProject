@@ -8,6 +8,7 @@
 </head>
 <body>
     {% for item in cart_items %}
+<<<<<<< HEAD
     <div>
         <p>{{item.product_info.title}}</p>
         <img src="{{item.product_info.image}}" alt="">
@@ -18,5 +19,18 @@
     {% endfor %}
     <div>
     </div>
+=======
+        <div>
+            <p>{{item.product_info.title}}</p>
+            <img src="{{item.product_info.image}}" alt="{{item.product_info.title}} image">
+            <p>{{item.product_info.price}}</p>
+        </div>
+        <div>
+            <form action="/cart/delete/{{item.product_info.id}}">
+                <button type="submit">Remove from Cart</button>
+            </form>
+        </div>
+    {% endfor %}
+>>>>>>> ea8526d242fe6e4c8fb8e9465867a6be6389e533
 </body>
 </html>
