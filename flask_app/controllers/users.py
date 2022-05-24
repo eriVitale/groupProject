@@ -1,4 +1,5 @@
 
+from unicodedata import name
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user import User
@@ -35,7 +36,7 @@ def dashboard():
     if 'user_id' not in session:
         return redirect('/logout')
     data={
-        'id': session['user_id']
+        'id': session['user_id'],
     }
     return render_template('dashboard.html',user=User.get_one_from_id(data))
 
@@ -50,6 +51,7 @@ def login():
         flash("Invalid Email/Password")
         return redirect('/')
     session['user_id']=user_in_db.id
+    session['name'] = user_in_db.first_name
     return redirect('/dashboard')
 
 
