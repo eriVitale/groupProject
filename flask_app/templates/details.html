@@ -6,16 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/style.css" class="css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   <title>Item details</title>
 </head>
 <body>
-  <h3>{{ product.title }}</h3>
-  <img src="{{product.image}}" alt="">
-  <p>${{product.price}}</p>
-  <details>
-    <summary>Description</summary>
-    <p>{{product.description}}</p>
-  </details> 
+  <div class = "details">
+    <div class="innerDets" id="imageHolder">
+      <h2 CLASS="logo">HUGO</h2>
+      <img src="{{product.image}}" alt="" id="detailsPic">
+    </div>
+    <div class="innerDets" id="detailHolder">
+      <h3 id="detailName">{{ product.title }}</h3>
+      <p id="price">${{product.price}}</p>
+      <p>{{product.description}}</p>
+      <p>{{product.category}}</p>
+      <div>
+        <a href="/add/{{product.id}}"><button>Add to Cart!</button></a>
+      </div>
+    </div>
+  </div>
 </body>

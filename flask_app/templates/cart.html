@@ -8,18 +8,6 @@
 </head>
 <body>
     {% for item in cart_items %}
-<<<<<<< HEAD
-    <div>
-        <p>{{item.product_info.title}}</p>
-        <img src="{{item.product_info.image}}" alt="">
-    </div>
-    <form action="/cart/delete/{{item.product_info.id}}">
-        <button type="submit">Delete Product</button>
-    </form>
-    {% endfor %}
-    <div>
-    </div>
-=======
         <div>
             <p>{{item.product_info.title}}</p>
             <img src="{{item.product_info.image}}" alt="{{item.product_info.title}} image">
@@ -31,6 +19,5 @@
             </form>
         </div>
     {% endfor %}
->>>>>>> ea8526d242fe6e4c8fb8e9465867a6be6389e533
 </body>
 </html>
