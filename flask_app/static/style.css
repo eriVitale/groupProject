@@ -1,11 +1,8 @@
-
-
 body{
     font-family: "Raleway", sans-serif;
     max-width: auto;
     display:flex;
 }
-
 
 .wrapper{
     margin: 0 auto;
@@ -38,6 +35,7 @@ font-weight: 400;
 font-size: 40px;
 color: #000000;
 }
+
 .navright{
     display:flex;
     justify-content: space-evenly;
@@ -96,6 +94,7 @@ a{
 
 .bodybg{
     background: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%);
+    
 
 }
 
@@ -105,17 +104,14 @@ a{
     display: flex;
     padding-left:20px;
 }
-.logo{
-    justify-self: flex-start;
-}
+
 .logo:hover{
     text-decoration: none;
     color: inherit;
 }
 
-
 .h2login{
-    font-family: 'Prata';
+font-family: 'Prata';
 font-style: normal;
 font-weight: 400;
 font-size: 40px;
