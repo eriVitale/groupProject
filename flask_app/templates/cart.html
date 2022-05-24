@@ -10,12 +10,12 @@
     {% for item in cart_items %}
         <div>
             <p>{{item.product_info.title}}</p>
-            <img src="{{item.product_info.image}}" alt="">
-            <p>this is the {{item.id}}</p>
+            <img src="{{item.product_info.image}}" alt="{{item.product_info.title}} image">
+            <p>{{item.product_info.price}}</p>
         </div>
         <div>
-            <form action="/cart/delete/{{item.id}}">
-                <button type="submit">Delete Product</button>
+            <form action="/cart/delete/{{item.product_info.id}}">
+                <button type="submit">Remove from Cart</button>
             </form>
         </div>
     {% endfor %}

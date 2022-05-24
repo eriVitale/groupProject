@@ -25,15 +25,13 @@ def view_cart():
     return render_template('cart.html', cart_items = Cart.get_cart_items(data))
 
 
-@app.route("/cart/delete/<int:id>")
-def delete_product(id):
+@app.route("/cart/delete/<int:product_id>")
+def delete_product(product_id):
     if 'user_id' not in session:
         return redirect('/logout')
     product_data = {
-        'id': id
-    }
-    user_data ={
-        'id':session['user_id']
+        'product_id': product_id,
+        'user_id':session['user_id']
     }
     Cart.delete(product_data)
     return redirect('/dashboard')
