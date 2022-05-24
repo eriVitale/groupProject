@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    {% for item in cart_items %}
-    <div>
-        <p>{{item.product_info.title}}</p>
-        <img src="{{item.product_info.image}}" alt="">
-    </div>
-    {% endfor %}
+        {%  for item in cart_items %}
+        <div>
+            <p>{{item.product_info.title}}</p>
+            <img src="{{item.product_info.image}}" alt="product image">
+        </div>
+        {% endfor %}
 </body>
 </html>
