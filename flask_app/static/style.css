@@ -1,3 +1,4 @@
+
 body{
     font-family: "Raleway", sans-serif;
     max-width: auto;
@@ -14,6 +15,7 @@ body{
     height: 450px;
     background-image: url('homeimage.png');
 }
+
 
 .navigation{
     display: flex;
