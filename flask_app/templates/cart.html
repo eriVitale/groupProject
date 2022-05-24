@@ -8,15 +8,16 @@
 </head>
 <body>
     {% for item in cart_items %}
-    <div>
-        <p>{{item.product_info.title}}</p>
-        <img src="{{item.product_info.image}}" alt="">
-    </div>
+        <div>
+            <p>{{item.product_info.title}}</p>
+            <img src="{{item.product_info.image}}" alt="">
+            <p>this is the {{item.id}}</p>
+        </div>
+        <div>
+            <form action="/cart/delete/{{item.id}}">
+                <button type="submit">Delete Product</button>
+            </form>
+        </div>
     {% endfor %}
-    <div>
-        <form action="/cart/delete/{{item.id}}">
-            <button type="submit">Delete Product</button>
-        </form>
-    </div>
 </body>
 </html>

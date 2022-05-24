@@ -20,6 +20,8 @@ def view_cart():
     data = {
         'user_id' : session['user_id']
     }
+    x = Cart.get_cart_items(data)
+    print("THIS IS THE DATA!",x)
     return render_template('cart.html', cart_items = Cart.get_cart_items(data))
 
 
