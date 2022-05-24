@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="static/style.css" class="css">
     <title>Homepage</title>
 </head>
-<body>
-<div class="wrapper.bodybg">
+<body class="bagbg" style="display:flex; flex-direction: column;">
+
     <div class="hero">
         <!-------Nav start------->
         <div class="navigation">
@@ -22,8 +22,6 @@
                 </form>
             </div>
             <div class="navright">
-                <p>Welcome, {{user.first_name}}</p>
-            <div class="nav right">
                 <p>Welcome, {{name}}</p>
                 <a class="navlink" href="/logout">Logout</a>
                 <a class="navlink cart" href="/view_cart" img="static/shoppingcart.png" alt="cart"></a>
@@ -42,11 +40,6 @@
                 <li><a href="/products/electronics">Electronics</a></li>
             </ul>
         </div>
-    </div>
-</div>
-
-
-
     
 </body>
 </html>

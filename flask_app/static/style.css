@@ -10,12 +10,10 @@ body{
     display:flex;
 }
 
-.hero{
-    width: 1200px;
-    height: 450px;
-    background-image: url('homeimage.png');
-}
 
+.dashwrap{
+  display:flex;
+}
 
 .navigation{
     display: flex;
@@ -48,6 +46,7 @@ color: #000000;
 
 .navlink{
     padding:30px;
+    display:flex;
 }
 
 .cart{
@@ -98,6 +97,11 @@ a{
     background: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%);
     
 
+}
+.bagbg{
+  background-image: url('homeimage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
