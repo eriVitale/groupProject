@@ -37,7 +37,8 @@ class User:
     @classmethod
     def get_one_from_id(cls,data):
         query="SELECT * FROM users WHERE id=%(id)s;"
-        return connectToMySQL(cls.db).query_db(query,data)
+        results=connectToMySQL(cls.db).query_db(query,data)
+        return cls(results[0])
 
     @staticmethod
     def validate_user(user):

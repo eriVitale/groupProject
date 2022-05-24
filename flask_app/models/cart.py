@@ -31,7 +31,7 @@ class Cart:
 
     @classmethod
     def delete(cls,data):
-        query = 'DELETE * FROM cart WHERE id =%(id)s;'
+        query = 'DELETE * FROM cart WHERE id =%(id)s and user_id=%(user_id)s;'
         return connectToMySQL(cls.db).query_db(query,data)
 
 
