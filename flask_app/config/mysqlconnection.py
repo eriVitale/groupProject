@@ -14,7 +14,6 @@ class MySQLConnection:
             try:
                 query = cursor.mogrify(query, data)
                 print("Running Query:", query)
-     
                 executable = cursor.execute(query, data)
                 if query.lower().find("insert") >= 0:
                     # if the query is an insert, return the id of the last row, since that is the row we just added

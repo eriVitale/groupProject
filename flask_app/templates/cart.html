@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
-<body>
-        {%  for item in cart_items %}
-        <div>
-            <p>{{item.product_info.title}}</p>
-            <img src="{{item.product_info.image}}" alt="">
-        </div>
-        {% endfor %}
+<body class="testCart">
+  <div class="cartItems ">
+    {% for item in cart_items %}
+    <div>
+        <p>{{item.product_info.title}}</p>
+        <img src="{{item.product_info.image}}" alt="">
+    </div>
+    <form action="/cart/delete/{{item.id}}">
+        <button type="submit">Delete Product</button>
+    </form>
+    {% endfor %}
+    
 </body>
 </html>
