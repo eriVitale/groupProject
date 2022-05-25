@@ -11,21 +11,19 @@
     <link rel="stylesheet" href="static/style.css" class="css">
     <title>Homepage</title>
 </head>
-<body>
-<div class="wrapper.bodybg">
+<body class="bagbg" style="display:flex; flex-direction: column;">
+
     <div class="hero">
         <!-------Nav start------->
         <div class="navigation">
-            <div class="nav left">
+            <div class="navleft">
                 <h2 CLASS="logo">HUGO</h2>
-                <!-------Make Drop Down Option------->
-                <form class="searchbar" action="/search" method="post">
-                    <input class="navsearch" type="text" name="search" value="search products"><button type="submit"><img src="static/SearchOutline.png" alt="search"></button>
+                <form class="searchbar" action="/search" method="POST">
+                    <input class="navsearch" type="text" name="search" value="search products"><img src="static/SearchOutline.png" alt="search">
                 </form>
             </div>
-            <div class="nav right">
+            <div class="navright">
                 <a class="navlink" href="/loginreg">Login/Register</a>
-                <a class="navlink cart" href="/cart" img="static/shoppingcart.png" alt="cart"></a>
             </div>
         </div>
         <!-------Navend------->
@@ -37,13 +35,10 @@
             <ul class="categorieslist">
                 <li><a href="/products/menswear">Menswear</a></li>
                 <li><a href="/products/womenswear">Womenswear</a></li>
-                <li><a href="/products/jewelery">Jewelery</a></li>
+                <li><a href="/products/jewelery">Jewelry</a></li>
                 <li><a href="/products/electronics">Electronics</a></li>
             </ul>
         </div>
-    </div>
-</div>
-
-    <script src="/static/js/init.js"></script>
+    
 </body>
 </html>

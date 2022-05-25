@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>{{title}}</title>
 </head>
-<body>
-    {% for product in products %}
-    <div>
+<body style="display: flex; flex-direction: column;">
+    <div id="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="/dashboard">Home</a>
+          <a href="/products/menswear">Menswear</a>
+          <a href="/products/womenswear">Womenswear</a>
+          <a href="/products/jewelery">Jewelry</a>
+          <a href="/products/electronics">Electronics</a>
+          <a href="/view_cart" alt="cart">Cart</a>
+          <a class="navlink" href="/logout">Logout</a>
+          <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
+        </div>
+    </div>
+    <div class="logo">HUGO</div>
+    <div class="productwrap">
+        {% for product in products %}
+    <div class="product">
+        <img class="productimg" src="{{product.image}}" alt="">
         <h5>{{product.title}}</h5>
-        <img src="{{product.image}}" alt="">
         <p>{{product.price}}</p>
         <div>
             <a href="/add/{{product.id}}"><button>Add to Cart!</button></a>
@@ -19,5 +51,10 @@
     </div>
     
     {% endfor %}
+
+
+    </div>
+    
+
 </body>
 </html>
