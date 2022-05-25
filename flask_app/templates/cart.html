@@ -14,7 +14,7 @@
         <p>{{item.product_info.title}}</p>
         <img src="{{item.product_info.image}}" alt="">
     </div>
-    <form action="/cart/delete/{{item.id}}">
+    <form action="/cart/delete/{{item.product_info.id}}">
         <button type="submit">Delete Product</button>
     </form>
     {% endfor %}
