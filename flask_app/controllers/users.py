@@ -38,7 +38,7 @@ def dashboard():
     data={
         'id': session['user_id'],
     }
-    return render_template('dashboard.html',user=User.get_one_from_id(data), name = session["name"])
+    return render_template('dashboard.html',user=User.get_one_from_id(data))
 
 @app.route('/login',methods=['POST'])
 def login():
