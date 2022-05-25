@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
     <title>{{title}}</title>
 </head>
 <body style="display: flex; flex-direction: column;">
@@ -15,7 +16,6 @@
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
           <div class="nav-title">
-            <i class="fa-solid fa-cart-shopping"></i>
           </div>
         </div>
         <div class="nav-btn">
@@ -45,8 +45,12 @@
         <h5>{{product.title}}</h5>
         <p>{{product.price}}</p>
         <div>
-            <a href="/add/{{product.id}}"><button>Add to Cart!</button></a>
-            <a href="/view/{{product.id}}"><button>Product Info</button></a>
+            <a href="/add/{{product.id}}">
+              <button>Add to Cart!</button>
+            </a>
+            <a href="/view/{{product.id}}">
+              <button>Product Info</button>
+            </a>
         </div>
     </div>
     

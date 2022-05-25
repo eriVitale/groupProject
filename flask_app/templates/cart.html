@@ -8,7 +8,40 @@
     <title>Document</title>
 </head>
 <body class="testCart">
+  <div id="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+      <a href="/dashboard">Home</a>
+      <a href="/products/menswear">Menswear</a>
+      <a href="/products/womenswear">Womenswear</a>
+      <a href="/products/jewelery">Jewelry</a>
+      <a href="/products/electronics">Electronics</a>
+      <a href="/view_cart" alt="cart">Cart</a>
+      <a class="navlink" href="/logout">Logout</a>
+      <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
+    </div>
+  </div>
+<div class="logo">HUGO</div>
   <div class="cartItems ">
+    {%if not cart_items: %}
+      <div id="notCart">
+        <!-- feel free to change the text  -->
+        <h2>Must have items to your cart</h2>
+      </div>
+    {% endif %}
+
     {% for item in cart_items %}
     <div>
         <p>{{item.product_info.title}}</p>

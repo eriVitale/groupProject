@@ -43,6 +43,6 @@ def details(num):
       if num == i['id']:
         product = i
         print(i)
-    return render_template('details.html', product = product )
+    return render_template('details.html', product = product, total = session['total']  )
 
 
