@@ -32,8 +32,10 @@
           <a href="/products/womenswear">Womenswear</a>
           <a href="/products/jewelery">Jewelry</a>
           <a href="/products/electronics">Electronics</a>
+          {% if session['user_id'] %}
           <a href="/view_cart" alt="cart">Cart</a>
           <a class="navlink" href="/logout">Logout</a>
+          {% endif %}
           <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
         </div>
     </div>

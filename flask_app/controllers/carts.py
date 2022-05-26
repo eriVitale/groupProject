@@ -7,10 +7,6 @@ from flask_app.models.cart import Cart
 def add_item(product_id):
     if 'user_id' not in session:
         return redirect('/loginreg')
-    if "total" not in session:
-        session['total'] = 1
-    elif "total" in session:
-        session['total'] += 1
     data = {
         'product_id' : product_id,
         'user_id' : session['user_id']
@@ -32,10 +28,6 @@ def view_cart():
 def delete_product(product_id):
     if 'user_id' not in session:
         return redirect('/logout')
-    if "total" in session:
-        session['total'] -= 1
-    elif session['total'] == 0:
-        session['total'] = 0
     product_data = {
         'product_id': product_id,
         'user_id':session['user_id']
