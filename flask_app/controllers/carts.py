@@ -21,7 +21,7 @@ def view_cart():
         'user_id' : session['user_id']
     }
     x = Cart.get_cart_items(data)
-    return render_template('cart.html', cart_items = Cart.get_cart_items(data))
+    return render_template('cart.html', cart_items = Cart.get_cart_items(data),total=Cart.get_cart_total(data))
 
 
 @app.route("/cart/delete/<int:product_id>")
