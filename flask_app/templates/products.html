@@ -45,7 +45,7 @@
     <div class="product">
         <img class="productimg" src="{{product.image}}" alt="">
         <h5>{{product.title}}</h5>
-        <p>{{product.price}}</p>
+        <p>{{"$%.2f"|format(product.price)}}</p>
         <div>
             <a href="/add/{{product.id}}">
               <button>Add to Cart!</button>
