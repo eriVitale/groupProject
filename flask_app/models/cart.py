@@ -44,7 +44,7 @@ class Cart:
         for item in cart_items:
             for product in all_products:
                 if product['id'] == item['product_id']:
-                    total+=float(product['price'])
+                    total+=float(product['price']) * item['quantity']
         total=float(total)
         return ('$'+format(total,'.2f'))
 

@@ -20,7 +20,7 @@ def loginreg():
 @app.route('/register',methods=['POST'])
 def register():
     if not User.validate_user(request.form):
-        return redirect('/')
+        return redirect('/loginreg')
     pw_hash=bcrypt.generate_password_hash(request.form['password'])
     data={
         'first_name':request.form['first_name'],

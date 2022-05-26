@@ -59,8 +59,9 @@
             <p>{{item.product_info.title}}</p>
             <img class="productimg"src="{{item.product_info.image}}" alt="product image">
             <p>{{"$%.2f"|format(item.product_info.price)}}</p>
+            <p>Quantity: {{item.quantity}}</p>
               <form action="/cart/delete/{{item.product_info.id}}">
-                <button type="submit">Delete Product</button>
+                <button type="submit">Remove from Cart</button>
             </form>
         </div>
         {% endfor %}
@@ -77,10 +78,12 @@
       </thead>
       <tbody>
         {% for item in cart_items %}
-        <tr>
-          <th scope="row">{{item.product_info.title}}</th>
-          <td>${{"$%.2f"|format(item.product_info.price)}}</td>
-        </tr>
+          {% for i in range(item.quantity) %}
+          <tr>
+            <th scope="row">{{item.product_info.title}}</th>
+            <td>{{"$%.2f"|format(item.product_info.price)}}</td>
+          </tr>
+          {% endfor %}
         {% endfor %}
         <tr>
           <th scope="row">Total</th>
