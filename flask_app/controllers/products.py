@@ -1,8 +1,10 @@
+import imp
 from itertools import product
 from math import prod
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.product import Product
+from flask_app.models.cart import Cart
 
 
 @app.route('/search', methods=['POST'])
@@ -33,8 +35,10 @@ def category_products(category):
     if (category == 'electronics'):
         products = Product.get_product_by_category('electronics')
         title = 'Electronics'
-
-    total_in_cart = session['count']
+    x = []
+    cart_total = Cart.counter(x)
+    session['count'] = cart_total[0]['cart_total']
+    total_in_cart = cart_total[0]['cart_total']
     return render_template('products.html', title = title, products = products, total_in_cart = total_in_cart)
 
 @app.route('/view/<int:num>')

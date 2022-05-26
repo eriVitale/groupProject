@@ -1,9 +1,9 @@
 
-from asyncio import constants
-from unicodedata import name
+from requests import Session
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user import User
+from flask_app.models.cart import Cart
 
 from flask_bcrypt import Bcrypt
 bcrypt=Bcrypt(app)
@@ -40,7 +40,8 @@ def dashboard():
         'id': session['user_id'],
     }
     name = session['name']
-    return render_template('dashboard.html',user=User.get_one_from_id(data), name = name)
+
+    return render_template('dashboard.html', user=User.get_one_from_id(data), name = name,)
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -54,6 +55,8 @@ def login():
         return redirect('/')
     session['user_id']=user_in_db.id
     session['name'] = user_in_db.first_name
+    cart_total = Cart.counter(data)
+    session['count'] = cart_total[0]['cart_total']
     print("THIS IS THE NAME" , session['name'])
     return redirect('/dashboard')
 

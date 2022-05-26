@@ -14,7 +14,6 @@ def add_item(product_id):
     }
     Cart.add_item(data)
     cart_total = Cart.counter(data)
-    print("THIS IS THE COUNT",cart_total[0]['cart_total'])
     session['count'] = cart_total[0]['cart_total']
     return redirect(request.referrer)
 
