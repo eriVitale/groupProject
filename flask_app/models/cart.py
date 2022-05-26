@@ -1,3 +1,4 @@
+from click import FloatRange
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models.product import Product
 import requests
@@ -33,6 +34,20 @@ class Cart:
     def delete(cls,data):
         query = 'DELETE FROM cart WHERE user_id = %(user_id)s AND product_id = %(product_id)s;'
         return connectToMySQL(cls.db).query_db(query,data)
+
+    @classmethod
+    def get_cart_total(cls,data):
+        query="SELECT * FROM cart WHERE user_id=%(user_id)s;"
+        all_products = Product.get_all_products()
+        cart_items=connectToMySQL(cls.db).query_db(query,data)
+        total=0
+        for item in cart_items:
+            for product in all_products:
+                if product['id'] == item['product_id']:
+                    total+=float(product['price'])
+        total=float(total)
+        return ('$'+format(total,'.2f'))
+        
 
 
     
