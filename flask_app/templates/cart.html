@@ -52,7 +52,7 @@
         <div class="cartitem">
             <p>{{item.product_info.title}}</p>
             <img class="productimg"src="{{item.product_info.image}}" alt="product image">
-            <p>{{item.product_info.price}}</p>
+            <p>{{"$%.2f"|format(item.product_info.price)}}</p>
               <form action="/cart/delete/{{item.product_info.id}}">
                 <button type="submit">Delete Product</button>
             </form>
@@ -73,7 +73,7 @@
         {% for item in cart_items %}
         <tr>
           <th scope="row">{{item.product_info.title}}</th>
-          <td>${{item.product_info.price}}</td>
+          <td>${{"$%.2f"|format(item.product_info.price)}}</td>
         </tr>
         {% endfor %}
         <tr>
