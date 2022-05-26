@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
-    <title>{{title}}</title>
+    <title>Document</title>
 </head>
-<body style="display: flex; flex-direction: column;">
+<body>
     <div id="nav">
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
@@ -29,32 +32,13 @@
           <a href="/products/womenswear">Womenswear</a>
           <a href="/products/jewelery">Jewelry</a>
           <a href="/products/electronics">Electronics</a>
-          {% if session['user_id'] %}
           <a href="/view_cart" alt="cart">Cart</a>
           <a class="navlink" href="/logout">Logout</a>
-          {% endif %}
           <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
         </div>
-    </div>
-    <div class="logo">HUGO</div>
-    <div class="productwrap">
-        {% for product in products %}
-    <div class="product">
-        <img class="productimg" src="{{product.image}}" alt="">
-        <h5>{{product.title}}</h5>
-        <p>{{"$%.2f"|format(product.price)}}</p>
-        <div>
-            <a href="/add/{{product.id}}">
-              <button>Add to Cart!</button>
-            </a>
-            <a href="/view/{{product.id}}">
-              <button>Product Info</button>
-            </a>
-        </div>
-    </div>
-    {% endfor %}
-    </div>
-    
-
+      </div>
+      <div class="successbox">
+<h2 class="success">Checkout Successful</h2>
+      </div>
 </body>
 </html>

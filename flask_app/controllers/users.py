@@ -1,4 +1,5 @@
 
+from asyncio import constants
 from unicodedata import name
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
@@ -38,7 +39,8 @@ def dashboard():
     data={
         'id': session['user_id'],
     }
-    return render_template('dashboard.html',user=User.get_one_from_id(data))
+    name = session['name']
+    return render_template('dashboard.html',user=User.get_one_from_id(data), name = name)
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -52,6 +54,7 @@ def login():
         return redirect('/')
     session['user_id']=user_in_db.id
     session['name'] = user_in_db.first_name
+    print("THIS IS THE NAME" , session['name'])
     return redirect('/dashboard')
 
 

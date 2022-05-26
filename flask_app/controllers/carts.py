@@ -12,7 +12,7 @@ def add_item(product_id):
         'user_id' : session['user_id']
     }
     Cart.add_item(data)
-    return redirect('/view_cart')
+    return redirect(request.referrer)
 
 
 @app.route('/view_cart')
@@ -21,8 +21,7 @@ def view_cart():
         'user_id' : session['user_id']
     }
     x = Cart.get_cart_items(data)
-    print("THIS IS THE DATA!",x)
-    return render_template('cart.html', cart_items = Cart.get_cart_items(data))
+    return render_template('cart.html', cart_items = Cart.get_cart_items(data),total=Cart.get_cart_total(data))
 
 
 @app.route("/cart/delete/<int:product_id>")
@@ -34,7 +33,15 @@ def delete_product(product_id):
         'user_id':session['user_id']
     }
     Cart.delete(product_data)
-    return redirect('/dashboard')
+    return redirect('/view_cart')
+
+@app.route('/checkout')
+def checkout():
+    data={
+        'user_id':session['user_id']
+    }
+    Cart.checkout(data)
+    return render_template('checkoutsuccess.html')
 
 
 

@@ -4,20 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
+    <title>Cart</title>
 </head>
-<body class="testCart">
-  <div class="cartItems ">
-    {% for item in cart_items %}
-    <div>
-        <p>{{item.product_info.title}}</p>
-        <img src="{{item.product_info.image}}" alt="">
+<body>
+  <div id="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+      </div>
     </div>
-    <form action="/cart/delete/{{item.product_info.id}}">
-        <button type="submit">Delete Product</button>
-    </form>
-    {% endfor %}
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
     
+    <div class="nav-links">
+      <a href="/dashboard">Home</a>
+      <a href="/products/menswear">Menswear</a>
+      <a href="/products/womenswear">Womenswear</a>
+      <a href="/products/jewelery">Jewelry</a>
+      <a href="/products/electronics">Electronics</a>
+      <a href="/view_cart" alt="cart">Cart</a>
+      <a class="navlink" href="/logout">Logout</a>
+      <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
+    </div>
+  </div>
+
+  
+  <div class="cartwrapper">
+    <div class="cartcontainleft">
+      <div class="logo">HUGO</div>
+      <div class="cartItems ">
+        {%if not cart_items: %}
+        <h2 class="carthead">No items in cart</h2>
+        {% else %}
+        <h2 class="carthead">Your Items</h2>
+        {%  endif %}
+        {%for item in cart_items %}
+        <div class="cartitem">
+            <p>{{item.product_info.title}}</p>
+            <img class="productimg"src="{{item.product_info.image}}" alt="product image">
+            <p>{{"$%.2f"|format(item.product_info.price)}}</p>
+              <form action="/cart/delete/{{item.product_info.id}}">
+                <button type="submit">Delete Product</button>
+            </form>
+        </div>
+        {% endfor %}
+      </div> 
+    </div>
+  <div class="cartcontainright">
+    <h2>Cart Total</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <th scope="row">{{item.product_info.title}}</th>
+          <td>${{"$%.2f"|format(item.product_info.price)}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <th scope="row">Total</th>
+          <td>{{total}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="/checkout"><button type="submit">Checkout</button></form>
+  </div>
+  </div> 
+  
 </body>
 </html>

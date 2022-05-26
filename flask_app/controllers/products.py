@@ -40,9 +40,9 @@ def category_products(category):
 def details(num):
     all = Product.get_all_products()
     for i in all:
-      if num == i['id']:
-        product = i
+        if num == i['id']:
+            product = i
         print(i)
-    return render_template('details.html', product = product )
+    return render_template('details.html', product = product)
 
 
