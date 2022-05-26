@@ -12,9 +12,10 @@ def get_product_by_category():
     print(category_info)
     return redirect('/product_info')
 
-@app.route('/product_info')
-def product_info():
-    return render_template('products.html')
+# @app.route('/product_info')
+# def product_info():
+#     total_in_cart = session['count']
+#     return render_template('products.html', total_in_cart = total_in_cart)
 
 @app.route('/products/<category>')
 def category_products(category):
@@ -33,8 +34,8 @@ def category_products(category):
         products = Product.get_product_by_category('electronics')
         title = 'Electronics'
 
-
-    return render_template('products.html', title = title, products = products)
+    total_in_cart = session['count']
+    return render_template('products.html', title = title, products = products, total_in_cart = total_in_cart)
 
 @app.route('/view/<int:num>')
 def details(num):
@@ -42,7 +43,7 @@ def details(num):
     for i in all:
         if num == i['id']:
             product = i
-        print(i)
-    return render_template('details.html', product = product)
+    total_in_cart = session['count']
+    return render_template('details.html', product = product, total_in_cart= total_in_cart )
 
 

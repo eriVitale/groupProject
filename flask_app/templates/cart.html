@@ -32,7 +32,13 @@
       <a href="/products/womenswear">Womenswear</a>
       <a href="/products/jewelery">Jewelry</a>
       <a href="/products/electronics">Electronics</a>
-      <a href="/view_cart" alt="cart">Cart</a>
+      <a href="/view_cart" alt="cart">Cart
+        {% if total_in_cart: %}
+            <span>
+              ( {{total_in_cart}} )
+            </span>
+        {% endif %} 
+      </a>
       <a class="navlink" href="/logout">Logout</a>
       <!-- <a href="" target="_blank">IN case to add something else ?</a> -->
     </div>

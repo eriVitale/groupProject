@@ -52,7 +52,8 @@ class Cart:
     def checkout(cls,data):
         query="DELETE FROM cart WHERE user_id=%(user_id)s;"
         return connectToMySQL(cls.db).query_db(query,data)
-        
 
-
-    
+    @classmethod
+    def counter(cls , data):
+        query = "SELECT SUM(quantity) as cart_total FROM cart"
+        return connectToMySQL(cls.db).query_db( query , data)
