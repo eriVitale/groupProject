@@ -47,6 +47,11 @@ class Cart:
                     total+=float(product['price'])
         total=float(total)
         return ('$'+format(total,'.2f'))
+
+    @classmethod
+    def checkout(cls,data):
+        query="DELETE FROM cart WHERE user_id=%(user_id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
         
 
 

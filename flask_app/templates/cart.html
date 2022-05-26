@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
+    <title>Cart</title>
 </head>
 <body>
   <div id="nav">
@@ -44,13 +44,11 @@
       <div class="logo">HUGO</div>
       <div class="cartItems ">
         {%if not cart_items: %}
-          <div id="notCart">
-            <!-- feel free to change the text  -->
-            <h2>Must have items to your cart</h2>
-          </div>
-        {% endif %}
+        <h2 class="carthead">No items in cart</h2>
+        {% else %}
         <h2 class="carthead">Your Items</h2>
-        {% for item in cart_items %}
+        {%  endif %}
+        {%for item in cart_items %}
         <div class="cartitem">
             <p>{{item.product_info.title}}</p>
             <img class="productimg"src="{{item.product_info.image}}" alt="product image">
@@ -61,14 +59,7 @@
         </div>
         {% endfor %}
       </div> 
-
-
-
-
     </div>
-  
-
-
   <div class="cartcontainright">
     <h2>Cart Total</h2>
     <table class="table">
@@ -91,6 +82,7 @@
         </tr>
       </tbody>
     </table>
+    <form action="/checkout"><button type="submit">Checkout</button></form>
   </div>
   </div> 
   
