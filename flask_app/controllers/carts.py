@@ -53,6 +53,8 @@ def checkout():
     if not session['count']:
         return render_template('notcheckout.html')
     Cart.checkout(data)
+    cart_total = Cart.counter(data)
+    session['count'] = cart_total[0]['cart_total']
     return render_template('checkoutsuccess.html')
 
 
