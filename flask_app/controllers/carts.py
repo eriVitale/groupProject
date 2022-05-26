@@ -35,5 +35,13 @@ def delete_product(product_id):
     Cart.delete(product_data)
     return redirect('/view_cart')
 
+@app.route('/checkout')
+def checkout():
+    data={
+        'user_id':session['user_id']
+    }
+    Cart.checkout(data)
+    return render_template('checkoutsuccess.html')
+
 
 
